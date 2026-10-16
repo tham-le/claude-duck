@@ -6,11 +6,11 @@ import re
 import sys
 import tempfile
 
-MAX_WORDS = 25
+MAX_WORDS = 40
 MAX_RETRIES = 3
 ON = re.compile(r"^/(duck:)?duck\b", re.I)
 OFF = re.compile(r"^(duck off|stop duck)\b", re.I)
-RULE = "Duck mode is on: reply with one question, under 25 words, no code, exactly one question mark."
+RULE = "Duck mode is on: reply with one question, under 40 words, no code, exactly one question mark."
 
 
 def state_path(session):

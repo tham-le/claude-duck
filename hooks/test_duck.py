@@ -27,7 +27,7 @@ assert duck.check("What did you expect?") is None
 assert duck.check("Why? Really?") == "it has 2 question marks, need exactly 1"
 assert duck.check("The bug is the mutex.") == "it has 0 question marks, need exactly 1"
 assert duck.check("Try this:\n```\nx = 1\n```\nok?") == "it has a code block"
-assert duck.check("word " * 25 + "end?") == "it has 26 words, max 25"
+assert duck.check("word " * 40 + "end?") == "it has 41 words, max 40"
 
 with tempfile.TemporaryDirectory() as tmp:
     tempfile.tempdir = tmp

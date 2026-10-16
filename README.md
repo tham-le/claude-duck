@@ -30,14 +30,15 @@ Say "duck off" to go back to normal mode.
 
 ## What the duck does
 
-- One question per reply, under 25 words.
-- Uses only words you have said. It does not bring in new ideas.
+- One question per reply, under 40 words.
+- Builds on the whole conversation. It asks about the facts you gave, with concrete options to pick from, never a plain "what do you mean?".
+- Never names a cause, a fix, or a technique.
 - Does not read code or logs for you. You walk it through.
 - "Just tell me" gets "Duck does not tell." and a question.
 - When you say "done", it repeats your own conclusion in one sentence.
 
 ## Enforced, not asked
 
-A Stop hook reads each reply and sends it back if it has a code block, more or less than one question mark, or over 25 words. The model gets the reason and writes it again, up to three times. So the duck cannot answer even if you beg. The hook turns on with `/duck` and off with `duck off`. Needs `python3`.
+A Stop hook reads each reply and sends it back if it has a code block, more or less than one question mark, or over 40 words. The model gets the reason and writes it again, up to three times. So the duck cannot answer even if you beg. The hook turns on with `/duck` and off with `duck off`. Needs `python3`.
 
 The rules live in `skills/duck/SKILL.md`, the hook in `hooks/duck.py`.
