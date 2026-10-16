@@ -36,4 +36,8 @@ Say "duck off" to go back to normal mode.
 - "Just tell me" gets "Duck does not tell." and a question.
 - When you say "done", it repeats your own conclusion in one sentence.
 
-The rules live in `skills/duck/SKILL.md`.
+## Enforced, not asked
+
+A Stop hook reads each reply and sends it back if it has a code block, more or less than one question mark, or over 25 words. The model gets the reason and writes it again, up to three times. So the duck cannot answer even if you beg. The hook turns on with `/duck` and off with `duck off`. Needs `python3`.
+
+The rules live in `skills/duck/SKILL.md`, the hook in `hooks/duck.py`.

@@ -5,5 +5,6 @@
   "author": {
     "name": "Tham Le",
     "url": "https://github.com/tham-le"
-  }
+  },
+  "hooks": "./hooks/hooks.json"
 }
