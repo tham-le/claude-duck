@@ -1,0 +1,9 @@
+{
+  "name": "duck",
+  "version": "0.1.0",
+  "description": "Rubber duck mode. Claude asks, never answers. You do the thinking.",
+  "author": {
+    "name": "Tham Le",
+    "url": "https://github.com/tham-le"
+  }
+}
