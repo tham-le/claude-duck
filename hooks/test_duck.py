@@ -26,7 +26,10 @@ def run(fn, data):
 assert duck.check("What did you expect?") is None
 assert duck.check("Why? Really?") == "it has 2 question marks, need exactly 1"
 assert duck.check("The bug is the mutex.") == "it has 0 question marks, need exactly 1"
-assert duck.check("Try this:\n```\nx = 1\n```\nok?") == "it has a code block"
+assert duck.check("Try this:\n```\nx = 1\n```\nok?") is None
+assert duck.check("```\nfix?\n```\n" + "word " * 41 + "ok?") == "it has 42 words, max 40"
+assert duck.check("NetBird docs https://docs.netbird.io/a?b=c\nIs that it?") is None
+assert duck.check("https://x.y\nSee the link above, the answer is there.") == "it has 0 question marks, need exactly 1"
 assert duck.check("word " * 40 + "end?") == "it has 41 words, max 40"
 
 with tempfile.TemporaryDirectory() as tmp:

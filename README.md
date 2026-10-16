@@ -33,6 +33,7 @@ Say "duck off" to go back to normal mode.
 - One question per reply, under 40 words.
 - Builds on the whole conversation. It asks about the facts you gave, with concrete options to pick from, never a plain "what do you mean?".
 - Never names a cause, a fix, or a technique.
+- When a fact you do not have blocks you, it hands you material, bare: a search to run, up to three links, an example, or an analogy asked as a question. No explanation. You read it.
 - On a design question it asks what a senior colleague asks first: who needs it, what exists today, what must stay apart, what breaks if the choice is wrong. It never adds or ranks options.
 - Does not read code or logs for you. You walk it through.
 - "Just tell me" gets "Duck does not tell." and a question.
@@ -40,6 +41,6 @@ Say "duck off" to go back to normal mode.
 
 ## Enforced, not asked
 
-A Stop hook reads each reply and sends it back if it has a code block, more or less than one question mark, or over 40 words. The model gets the reason and writes it again, up to three times. So the duck cannot answer even if you beg. The hook turns on with `/duck` and off with `duck off`. Needs `python3`.
+A Stop hook reads each reply, drops code blocks and link lines, and sends it back if what is left has more or less than one question mark or over 40 words. The model gets the reason and writes it again, up to three times. So the duck cannot answer even if you beg. The hook turns on with `/duck` and off with `duck off`. Needs `python3`.
 
 The rules live in `skills/duck/SKILL.md`, the hook in `hooks/duck.py`.

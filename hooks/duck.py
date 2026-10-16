@@ -10,7 +10,9 @@ MAX_WORDS = 40
 MAX_RETRIES = 3
 ON = re.compile(r"^/(duck:)?duck\b", re.I)
 OFF = re.compile(r"^(duck off|stop duck)\b", re.I)
-RULE = "Duck mode is on: reply with one question, under 40 words, no code, exactly one question mark."
+RULE = "Duck mode is on: material (links, code blocks) is free, the rest is one question, under 40 words, exactly one question mark."
+FENCE = re.compile(r"```.*?(```|$)", re.S)
+LINK_LINE = re.compile(r"^.*https?://.*$", re.M)
 
 
 def state_path(session):
@@ -74,9 +76,8 @@ def reply_text(transcript):
 
 
 def check(text):
-    """Why the reply breaks duck mode, or None."""
-    if "```" in text:
-        return "it has a code block"
+    """Why the reply breaks duck mode, or None. Code blocks and link lines do not count."""
+    text = LINK_LINE.sub("", FENCE.sub("", text))
     marks = text.count("?")
     if marks != 1:
         return f"it has {marks} question marks, need exactly 1"
