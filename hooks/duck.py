@@ -46,7 +46,7 @@ def prompt(data):
 
 
 def reply_text(transcript):
-    """Text of the last assistant message. Rows of one message share its id."""
+    """Fallback when the hook payload has no last_assistant_message. Rows of one message share its id."""
     rows = []
     with open(transcript) as f:
         for line in f:
@@ -90,10 +90,13 @@ def stop(data):
     path = state_path(data.get("session_id", "none"))
     if not os.path.exists(path):
         return
-    transcript = data.get("transcript_path", "")
-    if not os.path.isfile(transcript):
-        return
-    why = check(reply_text(transcript))
+    text = data.get("last_assistant_message")
+    if text is None:
+        transcript = data.get("transcript_path", "")
+        if not os.path.isfile(transcript):
+            return
+        text = reply_text(transcript)
+    why = check(text)
     tries = read_tries(path)
     if why is None or tries >= MAX_RETRIES:
         write_tries(path, 0)

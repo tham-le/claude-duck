@@ -54,6 +54,9 @@ with tempfile.TemporaryDirectory() as tmp:
         assert '"block"' in run(duck.stop, {**sid, "transcript_path": transcript})
     assert run(duck.stop, {**sid, "transcript_path": transcript}) == ""
 
+    assert '"block"' in run(duck.stop, {**sid, "last_assistant_message": "The bug is the mutex."})
+    assert run(duck.stop, {**sid, "last_assistant_message": "What did you expect?"}) == ""
+
     assert run(duck.prompt, {**sid, "prompt": "duck off"}) == ""
     assert run(duck.prompt, {**sid, "prompt": "next"}) == ""
     assert run(duck.stop, {**sid, "transcript_path": transcript}) == ""
