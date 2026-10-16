@@ -1,6 +1,6 @@
 # claude-duck
 
-A rubber duck for Claude Code. The duck asks. You think.
+A rubber duck for Claude Code that cannot answer, even if you beg. The duck asks. You think.
 
 Explaining a problem out loud is often enough to solve it. The point is to do the thinking yourself, not hand it to the model. So in duck mode Claude never answers, never hints, never writes code. It asks one short question at a time, built from your own words, and waits.
 

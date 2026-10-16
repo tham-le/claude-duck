@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude-duck",
-  "description": "Rubber duck mode for Claude Code. The duck asks, you think.",
+  "description": "A rubber duck for Claude Code that cannot answer, even if you beg.",
   "owner": {
     "name": "Tham Le",
     "url": "https://github.com/tham-le"
@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "duck",
-      "description": "Rubber duck mode. Claude asks, never answers. You do the thinking.",
+      "description": "A rubber duck for Claude Code that cannot answer, even if you beg.",
       "source": "./",
       "category": "productivity"
     }
